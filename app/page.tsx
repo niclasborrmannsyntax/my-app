@@ -10,8 +10,6 @@ export default function Home() {
       >
         Go to Dogs
       </Link>
-      {/* <Form />
-      <Counter /> */}
     </main>
   );
 }

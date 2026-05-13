@@ -1,7 +1,8 @@
 "use client";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { fetchDogImage } from "./fetch-dogs";
+import Loading from "../loading";
 
 export default function RandomDogPage() {
   const params = useParams();
@@ -18,13 +19,15 @@ export default function RandomDogPage() {
 
   return (
     <>
-      {imageUrl && (
-        <img
-          src={imageUrl}
-          alt="Random Dog"
-          className="w-1/2 h-[550] object-cover"
-        />
-      )}
+      <div className="flex flex-col items-center justify-center content-center gap-8 p-8 mx-auto max-w-md">
+        {imageUrl && (
+          <img
+            src={imageUrl}
+            alt={`${breed} Dog`}
+            className="w-96 h-96 object-cover rounded-full"
+          />
+        )}
+      </div>
     </>
   );
 }
